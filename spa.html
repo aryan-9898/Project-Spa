@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>olivia Spa</title>
+    <style>
+        * {
+            
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url('img/blog-2.png');
+            font-family: 'Georgia', serif;
+            color: #000000d2;
+            background-image: url('img/spa\ 3.jpg');
+            line-height: 1.8;
+        }
+        header {
+            background: #fd0ddd;
+            color: rgb(12, 12, 12);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin: 10px;
+        }
+        nav ul li a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #ffdd57;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?spa,nature,zen') no-repeat center center/cover;
+            height: 100vh;
+            color: rgb(255, 0, 200);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 4rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            background: #ff16f3;
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background:#ff00f2;
+            transform: translateY(-5px);
+        }
+        .section {
+            padding: 100px 10%;
+            text-align: center;
+        }
+        .services, .about, .contact {
+            background: rgb(255, 143, 212);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+            margin: 40px 0;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .services:hover, .about:hover, .contact:hover {
+            transform: scale(1.02);
+        }
+        .services h2, .about h2, .contact h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        .service-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .service-item {
+            width: 100%;
+            max-width: 350px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .service-item img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .service-item img:hover {
+            transform: scale(1.05);
+        }
+        .service-item h3 {
+            font-size: 24px;
+            margin: 15px 0;
+            color: #000000;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #ff389c;
+            color: white;
+            box-shadow: 0 -8px 16px rgba(0,0,0,0.1);
+        }
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        footer a:hover {
+            color: #f72db3;
+        }
+        /* Mobile responsiveness */
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #e64cb8;
+                z-index: 1;
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li {
+                text-align: center;
+                margin: 15px 0;
+            }
+        }
+        .contact{
+            text-align: center;
+        }
+
+
+
+        .work {
+            background: rgb(255, 143, 212);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+            margin: 40px 0;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .work:hover {
+            transform: scale(1.02);
+        }
+        .work h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+        .work-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .work-item {
+            width: 100%;
+            max-width: 350px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .work-item img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(233, 233, 233, 0.1);
+            transition: 0.3s;
+        }
+        .work-item img:hover {
+            transform: scale(1.05);
+        }
+        .work-item h3 {
+            font-size: 24px;
+            margin: 15px 0;
+            color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="home" class="hero">
+        <!-- <img src="img/spa 2.jpg" > -->
+        <div>
+            <h1>olivia Spa</h1>
+            <p>Embrace tranquility, refresh your soul</p>
+            <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/917668998299" ><i class="fab fa-whatsapp">book Appointment</i></a>
+        </div>
+    </div>
+
+    <div id="services" class="section services">
+        <h2>Our Services</h2>
+        <div class="service-container">
+            <div class="service-item">
+                <img src="img/spa 1.jpg" alt="Massage">
+                <h3>Signature Massage</h3>
+                <p>Feel rejuvenated with our calming massage treatments.</p>
+                
+                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/917668998299" ><i class="fab fa-whatsapp">whatsapp me</i></a>
+            </div>
+            <div class="service-item">
+                <img src="img/spa 5.jpg" alt="Facial">
+                <h3>Luxury Facial</h3>
+                <p>Glow with our revitalizing facial treatments.</p>
+                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/917668998299" ><i class="fab fa-whatsapp">whatsapp me</i></a>
+            </div>
+            <div class="service-item">
+                <img src="img/s 9.jpg" alt="Facial">
+                <h3>Swedish Massage</h3>
+                <p>Relaxing and gentle full-body massage using long, flowing strokes.                </p>
+                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/917668998299" ><i class="fab fa-whatsapp">whatsapp me</i></a>
+            </div>
+            <div class="service-item">
+                <img src="img/s 8.jpg" alt="Facial">
+                <h3>Hot Stone Massage</h3>
+                <p>Warm stones placed on the body to relax muscles and improve circulation.
+
+                </p>
+                <a class="btn-square btn btn-primary rounded-circle mx-1" href="https://wa.me/917668998299" ><i class="fab fa-whatsapp">whatsapp me</i></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="section about">
+        <!-- <img src="img/spa 2.jpg" alt=""> -->
+        <h2>About Us</h2>
+        <img src="img/spa 0.jpg" alt="" height="200px, width300px">
+        <p>Experience the finest spa treatments in a serene environment, designed for your relaxation and well-being.</p>
+        <p>Welcome to Serenity Spa, where tranquility meets luxury.
+            Our spa is dedicated to providing a sanctuary of peace and relaxation. With a team of highly trained therapists, we offer a variety of rejuvenating treatments designed to soothe your body, refresh your mind, and uplift your spirit.</p>
+    </div>
+
+    <!-- <div id="contact" class="section contact">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div> -->
+    <div id="work" class="section work">
+        <h2>See Our Work</h2>
+        <div class="work-container">
+            <div class="work-item">
+                <img src="img/1.jpg" alt="Spa Relaxation">
+                <h3>Relaxation Area</h3>
+            </div>
+            <div class="work-item">
+                <img src="img/2.jpg" alt="Massage Therapy">
+                <h3>Massage Therapy</h3>
+            </div>
+            <div class="work-item">
+                <img src="img/3.jpg" alt="Facial Spa">
+                <h3>Facial Spa</h3>
+            </div>
+            <div class="work-item">
+                <img src="img/4.jpg" alt="Hot Stone Therapy">
+                <h3>Hot Stone Therapy</h3>
+            </div>
+            <div class="work-item">
+                <img src="img/spa 1.jpg" alt="Aromatherapy">
+                <h3>Aromatherapy</h3>
+            </div>
+            <div class="work-item">
+                <img src="img/spa 3.jpg" alt="Body Wrap">
+                <h3>Body Wrap</h3>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-item d-flex flex-column">
+            <h4 class="mb-4 text-dark">Contact Info</h4>
+            <a href=""><i class="fa fa-map-marker-alt me-2"></i> near shubharti college , uttar pradesh 25001</a>
+        
+            <a href=""><i class="fas fa-phone me-2"></i> 7668998299</a>
+            
+            <!-- <div class="d-flex align-items-center"> -->
+                </div>
+        <p>&copy; 2025 olivia Spa. All Rights Reserved.</p>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
